@@ -13,7 +13,7 @@ call to :func:`readlines()` because we ate it with the first call to
 from XRootD import client
 
 with client.File() as f:
-  f.open('root://localhost//tmp/eggs')
+    f.open('root://localhost//tmp/eggs')
 
-  print '%r' % f.readline()
-  print f.readlines()
+    print '%r' % f.readline()
+    print f.readlines()

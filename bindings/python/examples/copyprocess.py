@@ -28,31 +28,33 @@ Produces output similar to the following::
 """
 from XRootD import client
 
+
 class MyCopyProgressHandler(client.utils.CopyProgressHandler):
-  def begin(self, jobId, total, source, target):
-    print 'id: %d, total: %d' % (jobId, total)
-    print 'source: %s' % source
-    print 'target: %s' % target
 
-  def end(self, jobId, result):
-    print 'end status:', jobId, result
+    def begin(self, jobId, total, source, target):
+        print 'id: %d, total: %d' % (jobId, total)
+        print 'source: %s' % source
+        print 'target: %s' % target
 
-  def update(self, jobId, processed, total):
-    print 'jobId: %d, processed: %d, total: %d' % (jobId, processed, total)
+    def end(self, jobId, result):
+        print 'end status:', jobId, result
 
-  def should_cancel( jobId ):
-    return False
+    def update(self, jobId, processed, total):
+        print 'jobId: %d, processed: %d, total: %d' % (jobId, processed, total)
+
+    def should_cancel(jobId):
+        return False
 
 process = client.CopyProcess()
 
 # From local to local
-process.add_job( '/tmp/spam', '/tmp/spam1' )
+process.add_job('/tmp/spam', '/tmp/spam1')
 # From local to remote
-process.add_job( '/tmp/spam', 'root://localhost//tmp/spam2' )
+process.add_job('/tmp/spam', 'root://localhost//tmp/spam2')
 # From remote to local
-process.add_job( 'root://localhost//tmp/spam', '/tmp/spam3' )
+process.add_job('root://localhost//tmp/spam', '/tmp/spam3')
 # From remote to remote
-process.add_job( 'root://localhost//tmp/spam', 'root://localhost//tmp/spam4' )
+process.add_job('root://localhost//tmp/spam', 'root://localhost//tmp/spam4')
 
 handler = MyCopyProgressHandler()
 process.prepare()

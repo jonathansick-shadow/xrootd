@@ -18,69 +18,70 @@
 
 from pyxrootd import client
 
+
 class URL(object):
-  """Server URL object.
+    """Server URL object.
 
-  This class has each portion of an `XRootD` URL split up as attributes. For
-  example, given the URL::
+    This class has each portion of an `XRootD` URL split up as attributes. For
+    example, given the URL::
 
-    >>> url = URL(root://user1:passwd1@host1:1234//path?param1=val1&param2=val2)
+      >>> url = URL(root://user1:passwd1@host1:1234//path?param1=val1&param2=val2)
 
-  then ``url.hostid`` would return `user1:passwd1@host1:1234`.
+    then ``url.hostid`` would return `user1:passwd1@host1:1234`.
 
-  :var           hostid: The host part of the URL, i.e. ``user1:passwd1@host1:1234``
-  :var         protocol: The protocol part of the URL, i.e. ``root``
-  :var         username: The username part of the URL, i.e. ``user1``
-  :var         password: The password part of the URL, i.e. ``passwd1``
-  :var         hostname: The name of the target host part of the URL, i.e. ``host1``
-  :var             port: The target port part of the URL, i.e. ``1234``
-  :var             path: The path part of the URL, i.e. ``path``
-  :var path_with_params: The path part of the URL with parameters, i.e.
-                         ``path?param1=val1&param2=val2``
-  """
+    :var           hostid: The host part of the URL, i.e. ``user1:passwd1@host1:1234``
+    :var         protocol: The protocol part of the URL, i.e. ``root``
+    :var         username: The username part of the URL, i.e. ``user1``
+    :var         password: The password part of the URL, i.e. ``passwd1``
+    :var         hostname: The name of the target host part of the URL, i.e. ``host1``
+    :var             port: The target port part of the URL, i.e. ``1234``
+    :var             path: The path part of the URL, i.e. ``path``
+    :var path_with_params: The path part of the URL with parameters, i.e.
+                           ``path?param1=val1&param2=val2``
+    """
 
-  def __init__(self, url):
-    self.__url = client.URL(url)
+    def __init__(self, url):
+        self.__url = client.URL(url)
 
-  def __str__(self):
-    return str(self.__url)
+    def __str__(self):
+        return str(self.__url)
 
-  @property
-  def hostid(self):
-    return self.__url.hostid
+    @property
+    def hostid(self):
+        return self.__url.hostid
 
-  @property
-  def protocol(self):
-    return self.__url.protocol
+    @property
+    def protocol(self):
+        return self.__url.protocol
 
-  @property
-  def username(self):
-    return self.__url.username
+    @property
+    def username(self):
+        return self.__url.username
 
-  @property
-  def password(self):
-    return self.__url.password
+    @property
+    def password(self):
+        return self.__url.password
 
-  @property
-  def hostname(self):
-    return self.__url.hostname
+    @property
+    def hostname(self):
+        return self.__url.hostname
 
-  @property
-  def port(self):
-    return self.__url.port
+    @property
+    def port(self):
+        return self.__url.port
 
-  @property
-  def path(self):
-    return self.__url.path
+    @property
+    def path(self):
+        return self.__url.path
 
-  @property
-  def path_with_params(self):
-    return self.__url.path_with_params
+    @property
+    def path_with_params(self):
+        return self.__url.path_with_params
 
-  def is_valid(self):
-    """Return the validity of the URL"""
-    return self.__url.is_valid()
+    def is_valid(self):
+        """Return the validity of the URL"""
+        return self.__url.is_valid()
 
-  def clear(self):
-    """Clear the URL"""
-    return self.__url.clear()
+    def clear(self):
+        """Clear the URL"""
+        return self.__url.clear()

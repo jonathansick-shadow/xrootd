@@ -17,4 +17,4 @@ status, listing = myclient.dirlist('/tmp', DirListFlags.STAT)
 
 print listing.parent
 for entry in listing:
-  print "{0} {1:>10} {2}".format(entry.statinfo.modtimestr, entry.statinfo.size, entry.name)
+    print "{0} {1:>10} {2}".format(entry.statinfo.modtimestr, entry.statinfo.size, entry.name)

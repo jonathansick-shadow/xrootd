@@ -22,19 +22,19 @@ from XRootD import client
 from XRootD.client.flags import OpenFlags
 
 with client.File() as f:
-  f.open('root://localhost//tmp/eggs', OpenFlags.DELETE)
+    f.open('root://localhost//tmp/eggs', OpenFlags.DELETE)
 
-  data = 'spam\n'
-  f.write(data)
-  print f.read()[1]
-  print f.get_property( "ReadRecovery" )
-  print f.get_property( "WriteRecovery" )
-  print f.get_property( "FollowRedirects" )
-  print f.get_property( "DataServer" )
-  print f.get_property( "LastURL" )
-  print f.set_property( "ReadRecovery", "false" )
-  print f.set_property( "WriteRecovery", "false" )
-  print f.set_property( "FollowRedirects", "false" )
-  print f.get_property( "ReadRecovery" )
-  print f.get_property( "WriteRecovery" )
-  print f.get_property( "FollowRedirects" )
+    data = 'spam\n'
+    f.write(data)
+    print f.read()[1]
+    print f.get_property("ReadRecovery")
+    print f.get_property("WriteRecovery")
+    print f.get_property("FollowRedirects")
+    print f.get_property("DataServer")
+    print f.get_property("LastURL")
+    print f.set_property("ReadRecovery", "false")
+    print f.set_property("WriteRecovery", "false")
+    print f.set_property("FollowRedirects", "false")
+    print f.get_property("ReadRecovery")
+    print f.get_property("WriteRecovery")
+    print f.get_property("FollowRedirects")

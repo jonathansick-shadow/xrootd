@@ -13,7 +13,7 @@ Produces the following output::
 from XRootD import client
 
 with client.File() as f:
-  f.open('root://localhost//tmp/eggs')
+    f.open('root://localhost//tmp/eggs')
 
-  for line in f:
-    print '%r' % line
+    for line in f:
+        print '%r' % line
